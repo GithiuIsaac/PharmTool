@@ -1,5 +1,4 @@
 from pharmtool import create_app
-# Import from __init__.py
 
 app = create_app()
 app.app_context().push()
