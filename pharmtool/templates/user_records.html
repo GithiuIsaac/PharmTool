@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1 class="mb-3">Records by {{ user.username }} ({{ records.total }})</h1>
+    {% for record in records.items %}
+        <article class="media content-section">
+          <img class="rounded-circle article-img" src="{{ url_for('static', filename='profile_pics/' + record.author.image_file) }}">
+            <div class="media-body">
+              <div class="article-metadata">
+                <a class="mr-2" href="{{ url_for('users.user_records', username=record.author.username) }}">{{ record.author.username }}</a>
+                <small class="text-muted">{{ record.date_posted.strftime('%Y-%m-%d') }}</small>
+              </div>
+              <h2><a class="article-title" href="{{ url_for('records.record', record_id=record.id) }}">{{ record.title }}</a></h2>
+              <div style = 'color: #3380CC'>
+                <p><small>FBS: {{ record.fbs }}</small></p>
+                <p><small>RBS: {{ record.rbs }}</small></p>
+              </div>
+              <p class="article-content">{{ record.content }}</p>
+            </div>
+          </article>
+    {% endfor %}
+    {% for page_num in records.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+          {% if page_num %}
+            {% if records.page == page_num %}
+              <a class="btn btn-info mb-4" href="{{ url_for('users.user_records', username=user.username, page=page_num) }}">{{ page_num }}</a>
+            {% else %}
+              <a class="btn btn-outline-info mb-4" href="{{ url_for('users.user_records', username=user.username, page=page_num) }}">{{ page_num }}</a>
+            {% endif %}
+          {% else %}
+          ...
+          {% endif %}
+    {% endfor %}
+{% endblock content%}

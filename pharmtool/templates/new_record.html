@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="content-section">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">{{ legend }}</legend>
+                <!-- Title -->
+                <div class="form-group">
+                    {{ form.title.label(class="form-control-label") }}
+                    
+                    {% if form.title.errors %}
+                        {{ form.title(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.title.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.title(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <!-- Fasting Blood Sugar -->
+                <div class="form-group">
+                    {{ form.fbs.label(class="form-control-label") }}
+                    
+                    {% if form.fbs.errors %}
+                        {{ form.fbs(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.fbs.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.fbs(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <!-- Random Blood Sugar -->
+                <div class="form-group">
+                    {{ form.rbs.label(class="form-control-label") }}
+                    
+                    {% if form.rbs.errors %}
+                        {{ form.rbs(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.rbs.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.rbs(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <!-- Any other physiological changes -->
+                <div class="form-group">
+                    {{ form.content.label(class="form-control-label") }}
+                    
+                    {% if form.content.errors %}
+                        {{ form.content(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.content.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.content(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+        </form>
+    </div>
+{% endblock content %}
+
