@@ -26,7 +26,7 @@ def create_app(config_class=Config):
     app = Flask(__name__)
     # app variable is set to an instance of the Flask class
     # __name__ lets flask know where to look for the templates & static files
-    app.config.from_object(Config)
+    app.config.from_object(os.environ['APP_SETTINGS'])
     db.init_app(app)
     with app.app_context():
         from pharmtool.models import User, Record
