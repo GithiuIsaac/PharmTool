@@ -20,9 +20,9 @@ login_manager.login_message_category = 'info'
 mail = Mail()
 
 import pharmtool
-from pharmtool.config import Config
+from pharmtool.config import Config, ProdConfig, DevConfig
 
-def create_app(config_class=Config):
+def create_app(config_class=os.environ['APP_SETTINGS']):
     app = Flask(__name__)
     # app variable is set to an instance of the Flask class
     # __name__ lets flask know where to look for the templates & static files
