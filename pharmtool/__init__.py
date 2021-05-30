@@ -45,6 +45,5 @@ def create_app(config_class=os.environ.get('APP_SETTINGS')):
     app.register_blueprint(records)
     app.register_blueprint(main)
     app.register_blueprint(errors)
-
     return app
 
