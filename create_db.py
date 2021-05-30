@@ -1,4 +1,5 @@
+from pharmtool import create_app, db
 from pharmtool.models import User, Record
-from pharmtool import db
 
-db.create_all()
+with app.app_context():
+    db.create_all()
