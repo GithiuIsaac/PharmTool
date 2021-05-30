@@ -14,12 +14,14 @@ class Config():
     MAIL_USE_TLS = True
     MAIL_USERNAME = os.environ.get('EMAIL_USER')
     MAIL_PASSWORD = os.environ.get('EMAIL_PASS')
-
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+    DEBUG = False
+    FLASK_ENV = 'production'
 
 class ProdConfig(Config):
     FLASK_ENV = 'production'
     DEBUG = False
-    DATABASE_URL = os.environ.get('DATABASE_URL')
+    # DATABASE_URL = os.environ.get('DATABASE_URL')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 
