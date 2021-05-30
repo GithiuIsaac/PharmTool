@@ -16,8 +16,6 @@ def new_record():
         entry = Record(title=form.title.data, fbs=form.fbs.data, rbs=form.rbs.data, content=form.content.data, author=current_user)
         db.session.add(entry)
         db.session.commit()
-        # usertype = User.query.filter_by(usertype='Patient')
-        # if usertype == 'Patient':
         flash('Your record has been created!', 'success')
         return redirect(url_for('main.home'))
 

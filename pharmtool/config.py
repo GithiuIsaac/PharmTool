@@ -1,9 +1,10 @@
 import os
 
-class Config:
+class Config():
     # Secret key (token) to prevent cookie modification & X-site request forgery attacks
     SECRET_KEY = os.environ.get('SECRET_KEY')
     # Pass these as environment variables to prevent unauthroized access
+    SQLALCHEMY_DATABASE_URI = os.environ.get('SQLALCHEMY_DATABASE_URI')
 
     # SQLite - sqlite:///db.db - relative path, DB is located in the project dir
     
@@ -18,12 +19,9 @@ class Config:
 class ProdConfig(Config):
     FLASK_ENV = 'production'
     DEBUG = False
-    TESTING = False
-    DATABASE_URI = os.environ.get('DATABASE_URL')
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
 
 
 class DevConfig(Config):
     FLASK_ENV = 'development'
     DEBUG = True
-    TESTING = True
-    SQLALCHEMY_DATABASE_URI = os.environ.get('SQLALCHEMY_DATABASE_URI')
