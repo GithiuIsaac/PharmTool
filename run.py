@@ -7,4 +7,4 @@ app.app_context().push()
 # __name__ = __main__ if the script is run directly with Python
 # If imported from elsewhere, __name__ is the name of the module
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
