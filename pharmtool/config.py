@@ -15,5 +15,5 @@ class Config():
     MAIL_USERNAME = os.environ.get('EMAIL_USER')
     MAIL_PASSWORD = os.environ.get('EMAIL_PASS')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    DEBUG = False
-    FLASK_ENV = 'production'
+    # DEBUG = False
+    # FLASK_ENV = 'production'
