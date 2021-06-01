@@ -35,7 +35,6 @@ def login():
         user = User.query.filter_by(email=form.email.data).first()
         # Check that User exists and password in DB matches form password 
         if user and bcrypt.check_password_hash(user.password, form.password.data):
-            # Control what user sees based on usertype
             login_user(user, remember=form.remember.data)
             next_page = request.args.get('next')
             return redirect(next_page) if next_page else redirect(url_for('main.home'))
