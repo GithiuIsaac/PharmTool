@@ -1,7 +1,6 @@
 from pharmtool import create_app
 
 app = create_app()
-app.app_context().push()
 
 # Runs the app in debug mode to allow changes in real time
 # __name__ = __main__ if the script is run directly with Python
